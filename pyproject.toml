@@ -1,0 +1,37 @@
+[project]
+name = "StrenghtMate"
+version = "1.0.0"
+description = ""
+authors = [
+    {name = "Youssef Mustafa",email = "awadallayossef@gmail.com"}
+]
+
+dependencies = [ 
+"deep_translator==1.11.4",
+"flet==0.28.3",
+"flet_permission_handler==0.1.0",
+"Requests==2.32.3",
+]
+
+
+
+
+[tool.flet.android.permission] # --android-permissions
+
+"android.permission.CAMERA" = true
+"android.permission.ACCESS_FINE_LOCATION" = true
+"android.permission.ACCESS_COARSE_LOCATION" = true
+"android.permission.ACCESS_BACKGROUND_LOCATION" = true
+"android.permission.RECORD_AUDIO" = true
+"android.permission.WRITE_EXTERNAL_STORAGE" = true
+"android.permission.READ_EXTERNAL_STORAGE" = true
+
+
+[tool.flet.app.boot_screen]
+show = true
+message = "Setting up your personalized experience for its first launch..."
+
+
+[tool.flet.app.startup_screen]
+show = true
+message = "Just a moment, getting everything ready..."
