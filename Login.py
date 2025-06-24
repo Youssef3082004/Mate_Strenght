@@ -67,11 +67,11 @@ class Login_interface(Column):
 
         #! ==================================================== Sign In Button ==============================================
         self.login_text = Text("SIGN IN",color=Colors.WHITE,size=16,font_family="Inter",weight=FontWeight.W_500)
-        self.login_button = Container(content=Row([self.login_text],alignment=MainAxisAlignment.CENTER),gradient=Variables.LINEARGRADIENT,height=45,width=260,border_radius=25,on_click=lambda e: print(),ink=True)
+        self.login_button = Container(content=Row([Icon(Icons.LOGIN_ROUNDED,size=24,color=Colors.WHITE),self.login_text],alignment=MainAxisAlignment.CENTER),gradient=Variables.LINEARGRADIENT,height=45,width=260,border_radius=25,on_click=lambda e: print(),ink=True)
 
         #! ==================================================== White Container Controls ==============================================
         self.Signup_text =  Text("Dont have an account?",color=Colors.BLACK54,size=14,font_family="Inter",weight=FontWeight.W_500)
-        self.Signup =  Text("Sign up".center(25),color=Variables.TAN,size=14,font_family="Inter",weight=FontWeight.W_500)
+        self.Signup =  Text("SIGN UP".center(25),color=Variables.TAN,size=14,font_family="Inter",weight=FontWeight.W_500)
 
         self.signup_button = TextButton(content=self.Signup)
         self.Singup_area = Column(controls=[self.Signup_text,Row(controls=[self.signup_button],alignment=CrossAxisAlignment.CENTER,vertical_alignment=CrossAxisAlignment.CENTER)],alignment=MainAxisAlignment.CENTER)

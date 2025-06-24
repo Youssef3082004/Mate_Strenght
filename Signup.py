@@ -1,5 +1,6 @@
 from flet import * 
 from Constant.variables import Variables
+from Constant.data import Data
 from Backend.Signup import *
 
 
@@ -19,7 +20,7 @@ class Signup_interface(Column):
 
         #! ==================================================== first Layer in interface ==============================================
         self.page_text = Text("    Let’s stay in touch \n    type your contact info here",font_family="Alex",weight=FontWeight.W_500,color=Colors.WHITE,size=24)
-        self.White_container = Container(bgcolor=Colors.WHITE,width=self.page.window.width - 15,height=700,border_radius=BorderRadius(50,50,0,0),padding=padding.only(top=25))
+        self.White_container = Container(bgcolor=Colors.WHITE,width=self.page.window.width - 15,height=750,border_radius=BorderRadius(50,50,0,0),padding=padding.only(top=25))
 
         #! ==================================================== first Layer Controls in interface ==============================================
         self.row0 = Column(controls=[Variables.space15,self.page_text])
@@ -29,11 +30,14 @@ class Signup_interface(Column):
         #! ==================================================== White Container Textfeilds ==============================================
         self.White_container_text = Row(controls=[Text("Create Account",font_family="Alex",weight=FontWeight.W_500,color=Colors.BLACK,size=24)],alignment=MainAxisAlignment.CENTER)
         
-        self.FullName =Signup_Frontend.Signup_textfeild("Full Name",prefix_icon=Icons.PERSON_2_ROUNDED,hint_text="Ex: John Donald") 
-        self.Email = Signup_Frontend.Signup_textfeild(Label="E-mail",prefix_icon=Icons.EMAIL,hint_text="Ex: xxxxx@gmail.com",keyboard_type=KeyboardType.EMAIL)
-        self.Phonenumber = Signup_Frontend.Signup_textfeild(Label="Phone-Number",prefix_icon=Icons.PHONE,hint_text="",keyboard_type=KeyboardType.NUMBER)
-        self.password = Signup_Frontend.Signup_textfeild(Label="Password",prefix_icon=Icons.LOCK,hint_text="")
-        self.Confirm_password = Signup_Frontend.Signup_textfeild(Label="Confirm Password",prefix_icon=Icons.LOCK,hint_text="")
+        self.FullName =Signup_Frontend.Signup_textfeild(label="Full Name",prefix_icon=Icons.PERSON_2_ROUNDED,hint_text="Ex: John Donald") 
+        self.Email = Signup_Frontend.Signup_textfeild(label="E-mail",prefix_icon=Icons.EMAIL,hint_text="Ex: xxxxx@gmail.com",keyboard_type=KeyboardType.EMAIL)
+        self.Phonenumber = Signup_Frontend.Signup_textfeild(label="Number",prefix_icon=Icons.PHONE,hint_text="",keyboard_type=KeyboardType.NUMBER,width=145)
+        self.country = Signup_Frontend.Signup_textfeild(label="Country",prefix_icon=Icons.FLAG,hint_text="",keyboard_type=KeyboardType.NUMBER,read_only=True,disabled=True,opacity=0.5,animate_opacity=1000)
+        self.country_code = Dropdown(leading_icon=Icon(Icons.PUBLIC),label="Code",label_style=Signup_variables.dropdown_style,editable=True,border_color=Variables.BLACK,width=145,border_radius=BorderRadius(10,10,10,10),options=Signup_variables.codes_contries,on_change=lambda e:Signup_Frontend.onchange_countries_code(self.page,e,self.country))
+
+        self.password = Signup_Frontend.Signup_textfeild(label="Password",prefix_icon=Icons.LOCK,hint_text="")
+        self.Confirm_password = Signup_Frontend.Signup_textfeild(label="Confirm Password",prefix_icon=Icons.LOCK,hint_text="")
 
         self.remember_me = Checkbox(label= "Remember me!",value=False ,label_position=LabelPosition.RIGHT,label_style= TextStyle(font_family="Alex"),active_color=Variables.TAN)
         self.Confirm_password.counter = Row([self.remember_me],alignment=MainAxisAlignment.CENTER)
@@ -41,11 +45,11 @@ class Signup_interface(Column):
 
         #! ==================================================== Sign In Button ==============================================
         self.login_text = Text("Next",color=Colors.WHITE,size=16,font_family="Inter",weight=FontWeight.W_500)
-        self.login_button = Container(content=Row([self.login_text,Icon(Icons.ARROW_RIGHT_ALT_OUTLINED,color=Colors.WHITE,size=24)],alignment=MainAxisAlignment.CENTER),gradient=Variables.LINEARGRADIENT,height=45,width=260,border_radius=25,on_click=lambda e: print(),ink=True)
+        self.login_button = Container(content=Row([self.login_text,Icon(Icons.ARROW_FORWARD_OUTLINED,color=Colors.WHITE,size=24)],alignment=MainAxisAlignment.CENTER),gradient=Variables.LINEARGRADIENT,height=45,width=260,border_radius=25,on_click=lambda e: print(),ink=True)
 
         #! ==================================================== White Container Controls ==============================================
         self.Signup_text =  Text("Already have an account?",color=Colors.BLACK54,size=14,font_family="Inter",weight=FontWeight.W_500)
-        self.Signup =  Text("Sign in".center(35),color=Variables.TAN,size=14,font_family="Inter",weight=FontWeight.W_500)
+        self.Signup =  Text("SIGN IN".center(35),color=Variables.TAN,size=14,font_family="Inter",weight=FontWeight.W_500)
 
         self.signup_button = TextButton(content=self.Signup)
         self.Singup_area = Column(controls=[self.Signup_text,Row(controls=[self.signup_button],alignment=CrossAxisAlignment.CENTER,vertical_alignment=CrossAxisAlignment.CENTER)],alignment=MainAxisAlignment.CENTER)
@@ -54,11 +58,13 @@ class Signup_interface(Column):
         
         self.Fullname_row = Row(controls=[self.FullName],alignment=MainAxisAlignment.CENTER)
         self.email_row = Row(controls=[self.Email],alignment=MainAxisAlignment.CENTER)
-        self.Phonenumber_row = Row(controls=[self.Phonenumber],alignment=MainAxisAlignment.CENTER)
+        self.Phonenumber_row = Row(controls=[self.country_code,self.Phonenumber],alignment=MainAxisAlignment.CENTER)
+        self.country_row = Row(controls=[self.country],alignment=MainAxisAlignment.CENTER)
+
         self.password_row = Row(controls=[self.password],alignment=MainAxisAlignment.CENTER)
         self.Confirmpassword_row = Row(controls=[self.Confirm_password],alignment=MainAxisAlignment.CENTER)
 
-        self.textFeilds_column = Column(controls=[self.Fullname_row,self.email_row,self.Phonenumber_row,self.password_row,self.Confirmpassword_row],spacing=15)
+        self.textFeilds_column = Column(controls=[self.Fullname_row,self.email_row,self.Phonenumber_row,self.country_row,self.password_row,self.Confirmpassword_row],spacing=15)
         self.login_row = Row(controls=[self.login_button],alignment=MainAxisAlignment.CENTER)
         self.signup_row = Row(controls=[self.Singup_area],alignment=MainAxisAlignment.CENTER,vertical_alignment=CrossAxisAlignment.CENTER)
 
@@ -71,6 +77,10 @@ class Signup_interface(Column):
         self.main_container = Container(content=self.Interface_controls,gradient=Variables.LINEARGRADIENT,width=400,height=700)
         self.controls = [SafeArea(content=self.main_container)]
 
+
+
+
+    
 
 
 if __name__ == "__main__":
