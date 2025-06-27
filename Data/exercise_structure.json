@@ -1,0 +1,107 @@
+[{"Arnold":{
+  "Deadlift": {
+    "weeks": {
+      "week_1": {
+        "date":"30-8-2004",
+        "sets": 3,
+        "repetitions": [10, 8, 6],
+        "weights": [60, 70, 80]
+      },
+      "week_2": {
+        "date":"30-8-2004",
+        "sets": 4,
+        "repetitions": [12, 10, 8, 6],
+        "weights": [50, 60, 70, 80]
+      },
+      "week_3": {
+        "date":"30-8-2004",
+        "sets": 5,
+        "repetitions": [15, 12, 10, 8, 6],
+        "weights": [40, 50, 60, 70, 80]
+      }
+    }
+  },
+  "Deadlift2": {
+    "weeks": {
+      "week_1": {
+        "date":"30-8-2004",
+        "sets": 3,
+        "repetitions": [10, 8, 6],
+        "weights": [60, 70, 80]
+      },
+      "week_2": {
+        "date":"30-8-2004",
+        "sets": 4,
+        "repetitions": [12, 10, 8, 6],
+        "weights": [50, 60, 70, 80]
+      },
+      "week_3": {
+        "date":"30-8-2004",
+        "sets": 5,
+        "repetitions": [15, 12, 10, 8, 6],
+        "weights": [40, 50, 60, 70, 80]
+      }
+    }
+  }
+}}, 
+
+{"Arnold2":{
+  "Deadlift": {
+    "weeks": {
+      "week_1": {
+        "date":"30-8-2004",
+        "sets": 3,
+        "repetitions": [10, 8, 6],
+        "weights": [60, 70, 80]
+      },
+      "week_2": {
+        "date":"30-8-2004",
+        "sets": 4,
+        "repetitions": [12, 10, 8, 6],
+        "weights": [50, 60, 70, 80]
+      },
+      "week_3": {
+        "date":"30-8-2004",
+        "sets": 5,
+        "repetitions": [15, 12, 10, 8, 6],
+        "weights": [40, 50, 60, 70, 80]
+      }
+    }
+  },
+  "Deadlift2": {
+    "weeks": {
+      "week_1": {
+        "date":"30-8-2004",
+        "sets": 3,
+        "repetitions": [10, 8, 6],
+        "weights": [60, 70, 80]
+      },
+      "week_2": {
+        "date":"30-8-2004",
+        "sets": 4,
+        "repetitions": [12, 10, 8, 6],
+        "weights": [50, 60, 70, 80]
+      },
+      "week_3": {
+        "date":"30-8-2004",
+        "sets": 5,
+        "repetitions": [15, 12, 10, 8, 6],
+        "weights": [40, 50, 60, 70, 80]
+      }
+    }
+  }
+}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+]
